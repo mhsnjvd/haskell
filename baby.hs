@@ -20,9 +20,11 @@ myMax (x:xs)
     | x <= currentMax = currentMax 
     where currentMax =  myMax xs
 
+myMin :: (Num a, Ord a) => [a] -> a
 myMin x = -(myMax [-t | t <- x])
 
-cylinder_surf_area r h = 
+cylinderSurfArea :: Floating a => a -> a -> a
+cylinderSurfArea r h = 
     let area = pi * r^2
         curve = 2 * pi * r * h
     in 2 * area + curve
@@ -30,7 +32,7 @@ cylinder_surf_area r h =
 
 myRev :: [a] -> [a]
 myRev [] = []
-myRev (x:xs) = (myRev xs) ++ [x]
+myRev (x:xs) = myRev xs ++ [x]
 
 
 
